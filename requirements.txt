@@ -3,6 +3,7 @@
 # Core dependencies
 pandas>=1.3.0
 numpy>=1.20.0
+scipy>=1.8.0
 
 # Data source
-finshare>=0.1.0
+finshare>=1.0.2
