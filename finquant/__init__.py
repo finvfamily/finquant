@@ -167,6 +167,18 @@ from finquant.trading import (
     BacktestBroker,
 )
 
+# 券商适配器
+from finquant.trading.broker import (
+    BrokerConfig,
+    WsBroker,
+    ConnectionState,
+    create_ws_broker,
+    EastMoneyQuote,
+    SimulatedLiveBroker,
+    create_simulated_broker,
+    get_realtime_quote,
+)
+
 # ========== 结果 ==========
 
 from finquant.result import BacktestResult, compare_strategies
@@ -260,6 +272,15 @@ __all__ = [
     "WebhookHandler",
     "ConsoleHandler",
     "BacktestBroker",
+    # 券商适配器
+    "BrokerConfig",
+    "WsBroker",
+    "ConnectionState",
+    "create_ws_broker",
+    "EastMoneyQuote",
+    "SimulatedLiveBroker",
+    "create_simulated_broker",
+    "get_realtime_quote",
     # API
     "bt",
     "compare",

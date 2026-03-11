@@ -45,6 +45,10 @@ from finquant.trading.broker import (
     BrokerAccount,
     BrokerAdapter,
     BacktestBroker,
+    BrokerConfig,
+    WsBroker,
+    ConnectionState,
+    create_ws_broker,
 )
 
 __all__ = [
@@ -81,4 +85,9 @@ __all__ = [
     "BrokerAccount",
     "BrokerAdapter",
     "BacktestBroker",
+    # WebSocket 券商
+    "BrokerConfig",
+    "WsBroker",
+    "ConnectionState",
+    "create_ws_broker",
 ]

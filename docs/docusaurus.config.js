@@ -23,7 +23,7 @@ const config = {
       ({
         docs: {
           sidebarPath: './sidebars.ts',
-          editUrl: 'https://github.com/meepo-quant/finquant/tree/master/',
+          editUrl: 'https://github.com/finvfamily/finquant/tree/master/',
         },
         blog: false,
         theme: {
