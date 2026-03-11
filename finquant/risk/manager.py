@@ -9,7 +9,7 @@ finquant - 风控模块
 """
 
 from dataclasses import dataclass, field
-from typing import Dict, List, Optional, Callable
+from typing import Dict, List, Optional, Callable, Tuple
 from enum import Enum
 import pandas as pd
 import numpy as np
@@ -100,7 +100,7 @@ class RiskManager:
         price: float,
         total_assets: float,
         current_position_value: float = 0,
-    ) -> tuple[bool, str]:
+    ) -> Tuple[bool, str]:
         """
         交易前风控检查
 
@@ -143,10 +143,11 @@ class RiskManager:
             if total_position_ratio > self.config.max_total_position:
                 return False, f"总仓位超限 ({total_position_ratio:.1%} > {self.config.max_total_position:.1%})"
 
-            # 检查现金
-            required_cash = proposed_value * (1 + self.config.min_cash_ratio)
-            if required_cash > total_assets * self.config.min_cash_ratio:
-                return False, "现金不足"
+            # 检查现金：买入需要资金 = 买入金额 + 预留现金
+            required_cash = proposed_value + total_assets * self.config.min_cash_ratio
+            available_cash = total_assets - current_position_value
+            if required_cash > available_cash:
+                return False, f"现金不足 (需要{required_cash:.0f}, 可用{available_cash:.0f})"
 
             # 检查杠杆
             if self.config.allow_leverage:
@@ -240,7 +241,7 @@ class RiskManager:
 
     # ========== 回撤控制 ==========
 
-    def check_drawdown(self, current_equity: float) -> tuple[bool, str]:
+    def check_drawdown(self, current_equity: float) -> Tuple[bool, str]:
         """
         检查回撤
 

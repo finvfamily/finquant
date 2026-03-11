@@ -9,7 +9,7 @@ finquant - 订单执行精度模块
 """
 
 from dataclasses import dataclass
-from typing import Dict, Optional
+from typing import Dict, Optional, Tuple
 from enum import Enum
 import numpy as np
 import pandas as pd
@@ -187,7 +187,7 @@ class OrderExecutor:
         self,
         volume: int,
         market_condition: MarketCondition,
-    ) -> tuple[int, float]:
+    ) -> Tuple[int, float]:
         """
         计算部分成交
 
