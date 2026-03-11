@@ -24,6 +24,7 @@ const config = {
         docs: {
           sidebarPath: './sidebars.ts',
           editUrl: 'https://github.com/finvfamily/finquant/tree/master/',
+          routeBasePath: '/', // 将文档作为首页
         },
         blog: false,
         theme: {
@@ -45,13 +46,7 @@ const config = {
         },
         items: [
           {
-            type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
-            position: 'left',
-            label: '文档',
-          },
-          {
-            href: 'https://github.com/meepo-quant/finquant',
+            href: 'https://github.com/finvfamily/finquant',
             label: 'GitHub',
             position: 'right',
           },
