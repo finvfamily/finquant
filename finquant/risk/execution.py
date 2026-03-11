@@ -136,7 +136,7 @@ class OrderExecutor:
             volatility = market_condition.volatility
             slippage = self.default_slippage * (1 + volatility)
 
-            return price * (1 + slippage) if direction == "BUY" else price * (1 - slippoint)
+            return price * (1 + slippage) if direction == "BUY" else price * (1 - slippage)
 
         return price
 

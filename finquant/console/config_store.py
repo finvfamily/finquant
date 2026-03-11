@@ -7,7 +7,7 @@ finquant - 配置持久化
 import json
 import os
 import logging
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, asdict
 from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, List, Optional
